@@ -441,18 +441,302 @@ border-radius:15px;
 
 
 
-/* TESTIMONIAL */
+/* REVIEWS */
 
 
-.testimonial-card{
+.reviews{
 
-background:var(--card);
-padding:40px;
-border-radius:20px;
-text-align:center;
+background:var(--dark2);
 
 }
 
+
+.reviews-summary{
+
+text-align:center;
+margin-bottom:50px;
+
+}
+
+
+.summary-score{
+
+font-size:4rem;
+font-weight:800;
+color:var(--gold);
+line-height:1;
+
+}
+
+
+.summary-stars{
+
+font-size:1.8rem;
+color:#FFD700;
+text-shadow:0 0 12px rgba(255,215,0,.5);
+letter-spacing:4px;
+margin:10px 0;
+
+}
+
+
+.summary-count{
+
+color:var(--gray);
+
+}
+
+
+.reviews-grid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
+margin-bottom:60px;
+
+}
+
+
+.review-card{
+
+background:var(--card);
+padding:30px;
+border-radius:16px;
+border:1px solid rgba(212,175,55,.15);
+transition:.3s;
+
+}
+
+
+.review-card:hover{
+
+border-color:rgba(255,215,0,.5);
+transform:translateY(-4px);
+
+}
+
+
+.review-stars{
+
+color:#FFD700;
+text-shadow:0 0 10px rgba(255,215,0,.45);
+font-size:1.2rem;
+letter-spacing:3px;
+margin-bottom:15px;
+
+}
+
+
+.review-text{
+
+color:#ddd;
+margin-bottom:18px;
+font-size:.95rem;
+
+}
+
+
+.review-author{
+
+color:var(--gold);
+font-size:.95rem;
+font-weight:600;
+
+}
+
+
+
+/* RATE US BOX */
+
+
+.rate-us-box{
+
+max-width:600px;
+margin:auto;
+background:var(--card);
+padding:45px 35px;
+border-radius:20px;
+text-align:center;
+border:1px solid rgba(212,175,55,.2);
+
+}
+
+
+.rate-us-box h3{
+
+font-size:1.6rem;
+margin-bottom:8px;
+
+}
+
+
+.rate-sub{
+
+color:var(--gray);
+margin-bottom:25px;
+font-size:.9rem;
+
+}
+
+
+.star-rating{
+
+font-size:2.8rem;
+margin-bottom:30px;
+letter-spacing:10px;
+
+}
+
+
+.star-rating .star{
+
+color:#3a3a3a;
+cursor:pointer;
+transition:.2s;
+display:inline-block;
+
+}
+
+
+.star-rating .star:hover{
+
+transform:scale(1.15);
+
+}
+
+
+.star-rating .star.selected{
+
+color:#FFD700;
+text-shadow:0 0 16px rgba(255,215,0,.7);
+
+}
+
+
+.rate-form{
+
+display:flex;
+flex-direction:column;
+gap:22px;
+text-align:left;
+
+}
+
+
+.rate-form button{
+
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+padding:17px;
+background:linear-gradient(135deg,#FFD700,#d4af37);
+border:none;
+font-weight:700;
+border-radius:12px;
+cursor:pointer;
+font-size:1rem;
+color:#000;
+box-shadow:0 4px 18px rgba(212,175,55,.35);
+transition:.25s;
+
+}
+
+
+.rate-form button:hover{
+
+transform:translateY(-2px);
+box-shadow:0 6px 22px rgba(255,215,0,.5);
+
+}
+
+
+
+/* PREMIUM FORM FIELDS - shared by booking + review forms */
+
+
+.form-group{
+
+display:flex;
+flex-direction:column;
+gap:8px;
+text-align:left;
+
+}
+
+
+.form-row{
+
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+
+}
+
+
+.form-group label{
+
+font-size:.8rem;
+font-weight:600;
+letter-spacing:1.5px;
+text-transform:uppercase;
+color:var(--gold);
+
+}
+
+
+.form-group input,
+.form-group select,
+.form-group textarea,
+.rate-form input,
+.rate-form textarea{
+
+padding:16px 18px;
+background:#161616;
+border:1.5px solid rgba(212,175,55,.25);
+border-radius:12px;
+color:white;
+font-size:1rem;
+font-family:'Poppins',sans-serif;
+transition:.25s;
+width:100%;
+
+}
+
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus,
+.rate-form input:focus,
+.rate-form textarea:focus{
+
+outline:none;
+border-color:#FFD700;
+box-shadow:0 0 0 3px rgba(255,215,0,.15),0 0 18px rgba(255,215,0,.2);
+background:#1a1a1a;
+
+}
+
+
+.form-group textarea,
+.rate-form textarea{
+
+height:120px;
+resize:vertical;
+
+}
+
+
+.form-group select{
+
+cursor:pointer;
+appearance:none;
+background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23d4af37' stroke-width='3'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+background-repeat:no-repeat;
+background-position:right 18px center;
+padding-right:45px;
+
+}
 
 
 
@@ -498,12 +782,28 @@ height:150px;
 
 .contact-form button{
 
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
 padding:18px;
-background:var(--gold);
+background:linear-gradient(135deg,#FFD700,#d4af37);
 border:none;
 font-weight:700;
 border-radius:12px;
 cursor:pointer;
+font-size:1rem;
+color:#000;
+box-shadow:0 4px 18px rgba(212,175,55,.35);
+transition:.25s;
+
+}
+
+
+.contact-form button:hover{
+
+transform:translateY(-2px);
+box-shadow:0 6px 22px rgba(255,215,0,.5);
 
 }
 
@@ -626,4 +926,27 @@ font-size:2rem;
 }
 
 
+.summary-score{
+
+font-size:3rem;
+
 }
+
+
+.star-rating{
+
+font-size:2.2rem;
+letter-spacing:5px;
+
+}
+
+
+.form-row{
+
+grid-template-columns:1fr;
+
+}
+
+
+  }
+  
