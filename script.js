@@ -154,7 +154,7 @@ setInterval(changeSlide,5000);
 
 const revealElements=document.querySelectorAll(
 
-".section,.room-card,.amenity,.gallery-grid img,.testimonial-card"
+".section,.room-card,.amenity,.gallery-grid img,.testimonial-card,.review-card,.rate-us-box"
 
 );
 
@@ -463,4 +463,199 @@ form.reset();
 
 
 
+
+
+
+
+
+// STAR RATING PICKER
+
+
+const starContainer=document.getElementById("starRating");
+
+const stars=document.querySelectorAll("#starRating .star");
+
+let selectedRating=0;
+
+
+
+if(starContainer){
+
+
+stars.forEach(star=>{
+
+
+star.addEventListener("click",()=>{
+
+
+selectedRating=parseInt(star.getAttribute("data-value"));
+
+
+highlightStars(selectedRating);
+
+
+});
+
+
+
+star.addEventListener("mouseenter",()=>{
+
+
+highlightStars(parseInt(star.getAttribute("data-value")));
+
+
+});
+
+
+
+});
+
+
+
+starContainer.addEventListener("mouseleave",()=>{
+
+
+highlightStars(selectedRating);
+
+
+});
+
+
+
+}
+
+
+
+
+function highlightStars(rating){
+
+
+stars.forEach(star=>{
+
+
+const value=parseInt(star.getAttribute("data-value"));
+
+
+if(value<=rating){
+
+star.classList.add("selected");
+
+}else{
+
+star.classList.remove("selected");
+
+}
+
+
+});
+
+
+}
+
+
+
+
+
+
+
+
+
+
+// RATE US FORM -> SENDS REVIEW TO WHATSAPP
+
+
+const rateForm=document.getElementById("rateForm");
+
+
+
+if(rateForm){
+
+
+rateForm.addEventListener("submit",(e)=>{
+
+
+e.preventDefault();
+
+
+
+if(selectedRating===0){
+
+
+alert("Please select a star rating before submitting.");
+
+return;
+
+
+}
+
+
+
+const reviewerName=rateForm.querySelector("input").value;
+
+const reviewText=rateForm.querySelector("textarea").value;
+
+
+
+const starsText="★".repeat(selectedRating)+"☆".repeat(5-selectedRating);
+
+
+
+const hotelNumber="2347045798185";
+
+
+
+const reviewMessage=`
+
+Hello Olympus Hotel & Lounge,
+
+I would like to leave a review.
+
+Name:
+${reviewerName}
+
+
+Rating:
+${starsText} (${selectedRating}/5)
+
+
+Review:
+${reviewText}
+
+
+`;
+
+
+
+
+const whatsappLink=
+
+"https://wa.me/"+hotelNumber+
+
+"?text="+encodeURIComponent(reviewMessage);
+
+
+
+
+window.open(whatsappLink,"_blank");
+
+
+
+rateForm.reset();
+
+
+selectedRating=0;
+
+
+highlightStars(0);
+
+
+
+});
+
+
+}
+
+
+
 console.log("Olympus Hotel Website Loaded Successfully");
+   
